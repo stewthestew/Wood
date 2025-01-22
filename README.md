@@ -1,6 +1,6 @@
 # Wood 🌲  
 
-A simple and colorful logging library for Rust.  
+A simple and colorful logging crate for Rust.  
 
 ## Installation  
 Add the following to your `Cargo.toml`:  

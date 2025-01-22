@@ -12,6 +12,49 @@ fn get_time() -> String {
 
 pub struct Logger;
 
+pub struct Simple;
+/// `Simple` just provides the warning level without the date
+impl Simple {
+    /// Logs a message with a custom level and color.
+    ///
+    /// # Arguments
+    /// * `level` - A string representing the log level (e.g., "CUSTOM").
+    /// * `color` - An ANSI color code to style the log message.
+    /// * `msg` - The message to be logged.
+    ///
+    /// # Example
+    /// ```ignore
+    /// Logger::extra("ALERT", "\x1b[31m", "This is a custom alert");
+    /// ```
+    pub fn extra(level: &str, color: &str, msg: &str) {
+        println!("{color}[{level}]{} {msg}", RESET);
+    }
+
+    pub fn warn(msg: &str) {
+        println!("{}[WARNING]{} {msg}", YELLOW, RESET);
+    }
+
+    pub fn error(msg: &str) {
+        println!("{}[ERROR]{} {msg}", RED, RESET);
+    }
+
+    pub fn fatal(msg: &str) {
+        println!("{}[FATAL]{} {msg}", MAGENTA, RESET);
+    }
+
+    pub fn info(msg: &str) {
+        println!("{}[INFO]{} {msg}", CYAN, RESET);
+    }
+
+    pub fn success(msg: &str) {
+        println!("{}[SUCCESS]{} {msg}", GREEN, RESET);
+    }
+
+    pub fn debug(msg: &str) {
+        println!("{}\x1b[2m[DEBUG]{} {msg}", WHITE, RESET);
+    }
+}
+
 impl Logger {
     /// Logs a message with a custom level and color.
     ///

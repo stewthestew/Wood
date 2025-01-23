@@ -19,5 +19,5 @@ Logger::error("An error occurred!");
 Logger::fatal("A fatal error occurred!");
 Logger::success("Operation completed successfully.");
 Logger::debug("This is a debug message.");
-Logger::extra("ALERT", "\x1b[31m", "This is a custom alert.");
+Simple::extra("ALERT", "\x1b[31m", "This is a custom alert."); // This will not provide the current date
 ```

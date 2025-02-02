@@ -22,7 +22,7 @@ pub mod Simple {
     ///
     /// # Example
     /// ```rust
-    /// use wood::simple;
+    /// use wood::Simple;
     /// Simple::extra("ALERT", "\x1b[31m", "This is a custom alert");
     /// ```
     pub fn extra(level: &str, color: &str, msg: &str) {
@@ -67,7 +67,7 @@ pub mod Logger {
     ///
     /// # Example
     /// ```rust
-    /// use wood::logger;
+    /// use wood::Logger;
     /// Logger::extra("ALERT", "\x1b[31m", "This is a custom alert");
     /// ```
     pub fn extra(level: &str, color: &str, msg: &str) {

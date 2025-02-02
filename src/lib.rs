@@ -20,8 +20,9 @@ pub mod simple {
     /// * `msg` - The message to be logged.
     ///
     /// # Example
-    /// ```ignore
-    /// Simple::extra("ALERT", "\x1b[31m", "This is a custom alert");
+    /// ```rust
+    /// use wood::simple;
+    /// simple::extra("ALERT", "\x1b[31m", "This is a custom alert");
     /// ```
     pub fn extra(level: &str, color: &str, msg: &str) {
         println!("{color}[{level}]{} {msg}", RESET);
@@ -64,7 +65,8 @@ pub mod logger {
     /// * `msg` - The message to be logged.
     ///
     /// # Example
-    /// ```ignore
+    /// ```rust
+    /// use wood::logger;
     /// logger::extra("ALERT", "\x1b[31m", "This is a custom alert");
     /// ```
     pub fn extra(level: &str, color: &str, msg: &str) {

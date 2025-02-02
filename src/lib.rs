@@ -1,5 +1,3 @@
-use calorie::color::{CYAN, GREEN, MAGENTA, RED, WHITE, YELLOW};
-use calorie::modifiers::RESET;
 use chrono::Timelike;
 
 fn get_time() -> String {
@@ -10,11 +8,10 @@ fn get_time() -> String {
     format!("{:02}:{:02}:{:02}", hour, minute, second)
 }
 
-pub struct Logger;
-
-pub struct Simple;
 /// `Simple` just provides the warning level without the date
-impl Simple {
+pub mod simple {
+    use calorie::color::*;
+    use calorie::modifiers::RESET;
     /// Logs a message with a custom level and color.
     ///
     /// # Arguments
@@ -24,7 +21,7 @@ impl Simple {
     ///
     /// # Example
     /// ```ignore
-    /// Logger::extra("ALERT", "\x1b[31m", "This is a custom alert");
+    /// Simple::extra("ALERT", "\x1b[31m", "This is a custom alert");
     /// ```
     pub fn extra(level: &str, color: &str, msg: &str) {
         println!("{color}[{level}]{} {msg}", RESET);
@@ -55,7 +52,10 @@ impl Simple {
     }
 }
 
-impl Logger {
+pub mod logger {
+    use crate::get_time;
+    use calorie::color::*;
+    use calorie::modifiers::RESET;
     /// Logs a message with a custom level and color.
     ///
     /// # Arguments
@@ -65,7 +65,7 @@ impl Logger {
     ///
     /// # Example
     /// ```ignore
-    /// Logger::extra("ALERT", "\x1b[31m", "This is a custom alert");
+    /// logger::extra("ALERT", "\x1b[31m", "This is a custom alert");
     /// ```
     pub fn extra(level: &str, color: &str, msg: &str) {
         let time = get_time();
@@ -111,9 +111,10 @@ mod tests {
 
     #[test]
     fn it_works() {
-        Logger::extra("TEST", BRIGHT_GREEN, "THIS IS A TEST");
-        Logger::warn("test");
-        Logger::fatal("test");
-        Logger::error("test");
+        logger::extra("TEST", BRIGHT_GREEN, "THIS IS A TEST");
+        simple::extra("TEST", BRIGHT_GREEN, "THIS IS A TEST");
+        logger::warn("test");
+        logger::fatal("test");
+        simple::error("test");
     }
 }

@@ -9,7 +9,8 @@ fn get_time() -> String {
 }
 
 /// `Simple` just provides the warning level without the date
-pub mod simple {
+#[allow(non_snake_case)] // To avoid other programs breaking
+pub mod Simple {
     use calorie::color::*;
     use calorie::modifiers::RESET;
     /// Logs a message with a custom level and color.
@@ -22,7 +23,7 @@ pub mod simple {
     /// # Example
     /// ```rust
     /// use wood::simple;
-    /// simple::extra("ALERT", "\x1b[31m", "This is a custom alert");
+    /// Simple::extra("ALERT", "\x1b[31m", "This is a custom alert");
     /// ```
     pub fn extra(level: &str, color: &str, msg: &str) {
         println!("{color}[{level}]{} {msg}", RESET);
@@ -52,8 +53,8 @@ pub mod simple {
         println!("{}\x1b[2m[DEBUG]{} {msg}", WHITE, RESET);
     }
 }
-
-pub mod logger {
+#[allow(non_snake_case)] // To avoid other programs breaking
+pub mod Logger {
     use crate::get_time;
     use calorie::color::*;
     use calorie::modifiers::RESET;
@@ -67,7 +68,7 @@ pub mod logger {
     /// # Example
     /// ```rust
     /// use wood::logger;
-    /// logger::extra("ALERT", "\x1b[31m", "This is a custom alert");
+    /// Logger::extra("ALERT", "\x1b[31m", "This is a custom alert");
     /// ```
     pub fn extra(level: &str, color: &str, msg: &str) {
         let time = get_time();
@@ -113,10 +114,10 @@ mod tests {
 
     #[test]
     fn it_works() {
-        logger::extra("TEST", BRIGHT_GREEN, "THIS IS A TEST");
-        simple::extra("TEST", BRIGHT_GREEN, "THIS IS A TEST");
-        logger::warn("test");
-        logger::fatal("test");
-        simple::error("test");
+        Logger::extra("TEST", BRIGHT_GREEN, "THIS IS A TEST");
+        Simple::extra("TEST", BRIGHT_GREEN, "THIS IS A TEST");
+        Logger::warn("test");
+        Logger::fatal("test");
+        Simple::error("test");
     }
 }

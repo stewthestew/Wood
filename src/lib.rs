@@ -26,19 +26,20 @@ pub mod Simple {
     /// Simple::extra("ALERT", "\x1b[31m", "This is a custom alert");
     /// ```
     pub fn extra(level: &str, color: &str, msg: &str) {
-        println!("{color}[{level}]{} {msg}", RESET);
+        println!("{color}[{level}]{} {msg}", RESET); // Not using eprintln since I don't know what
+        // are you going to do with extra
     }
 
     pub fn warn(msg: &str) {
-        println!("{}[WARNING]{} {msg}", YELLOW, RESET);
+        eprintln!("{}[WARNING]{} {msg}", YELLOW, RESET);
     }
 
     pub fn error(msg: &str) {
-        println!("{}[ERROR]{} {msg}", RED, RESET);
+        eprintln!("{}[ERROR]{} {msg}", RED, RESET);
     }
 
     pub fn fatal(msg: &str) {
-        println!("{}[FATAL]{} {msg}", MAGENTA, RESET);
+        eprintln!("{}[FATAL]{} {msg}", MAGENTA, RESET);
     }
 
     pub fn info(msg: &str) {
@@ -77,17 +78,17 @@ pub mod Logger {
 
     pub fn warn(msg: &str) {
         let time = get_time();
-        println!("{}[{time}] [WARNING]{} {msg}", YELLOW, RESET);
+        eprintln!("{}[{time}] [WARNING]{} {msg}", YELLOW, RESET);
     }
 
     pub fn error(msg: &str) {
         let time = get_time();
-        println!("{}[{time}] [ERROR]{} {msg}", RED, RESET);
+        eprintln!("{}[{time}] [ERROR]{} {msg}", RED, RESET);
     }
 
     pub fn fatal(msg: &str) {
         let time = get_time();
-        println!("{}[{time}] [FATAL]{} {msg}", MAGENTA, RESET);
+        eprintln!("{}[{time}] [FATAL]{} {msg}", MAGENTA, RESET);
     }
 
     pub fn info(msg: &str) {

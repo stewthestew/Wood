@@ -1,6 +1,7 @@
 use chrono::Timelike;
 
-fn get_time() -> String {
+// Changed this to pub if anybody wants to use it.
+pub fn get_time() -> String {
     let now = chrono::Local::now();
     let hour = now.hour();
     let minute = now.minute();

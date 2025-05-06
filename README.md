@@ -15,13 +15,13 @@ wood = { git = "https://github.com/stewthestew/Wood.git" }
 ```rust
 use wood::Logger;
 
-Logger::info("This is an info message.");
-Logger::warn("This is a warning message.");
-Logger::error("An error occurred!");
-Logger::fatal("A fatal error occurred!");
-Logger::success("Operation completed successfully.");
-Logger::debug("This is a debug message.");
-Simple::extra("ALERT", "\x1b[31m", "This is a custom alert."); // This will not provide the current date
+logger::info("This is an info message.");
+logger::warn("This is a warning message.");
+logger::error("An error occurred!");
+logger::fatal("A fatal error occurred!");
+logger::success("Operation completed successfully.");
+logger::debug("This is a debug message.");
+simple::extra("ALERT", "\x1b[31m", "This is a custom alert."); // This will not provide the current date
 ```
 
 ## TODO

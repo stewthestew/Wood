@@ -13,7 +13,7 @@ wood = { git = "https://github.com/stewthestew/Wood.git" }
 
 ## Usage  
 ```rust
-use wood::Logger;
+use wood::logger;
 
 logger::info("This is an info message.");
 logger::warn("This is a warning message.");

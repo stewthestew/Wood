@@ -10,8 +10,7 @@ pub fn get_time() -> String {
 }
 
 /// `Simple` just provides the warning level without the date
-#[allow(non_snake_case)] // To avoid other programs breaking
-pub mod Simple {
+pub mod simple {
     use calorie::color::*;
     use calorie::modifiers::RESET;
     /// Logs a message with a custom level and color.
@@ -55,8 +54,8 @@ pub mod Simple {
         println!("{}\x1b[2m[DEBUG]{} {msg}", WHITE, RESET);
     }
 }
-#[allow(non_snake_case)] // To avoid other programs breaking
-pub mod Logger {
+
+pub mod logger {
     use crate::get_time;
     use calorie::color::*;
     use calorie::modifiers::RESET;
